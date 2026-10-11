@@ -1,0 +1,90 @@
+
+.mf-footer-wordmark {
+  position: relative;
+  display: block;
+  width: max-content;
+  max-width: calc(100% - 24px);
+  margin: 105px auto 45px;
+  padding: 0 14px 24px 6px;
+  overflow: visible;
+  clip-path: none !important;
+  color: #f4e4d5;
+  font-family: 'Italiana', Georgia, serif;
+  font-size: clamp(90px, 15vw, 225px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.075em;
+  white-space: nowrap;
+  text-decoration: none;
+  opacity: 1;
+  animation: none !important;
+}
+
+.mf-footer-wordmark::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  right: 14px;
+  bottom: 0;
+  width: auto;
+  height: 1px;
+  background: #d7b49b;
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: none !important;
+}
+
+.mf-footer-wordmark.mf-wordmark-animate {
+  animation: mf-new-wordmark-reveal 1.5s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+}
+
+.mf-footer-wordmark.mf-wordmark-animate::after {
+  animation: mf-new-wordmark-line 1.1s 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+}
+
+@keyframes mf-new-wordmark-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes mf-new-wordmark-line {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 700px) {
+  .mf-footer-wordmark {
+    margin: 85px auto 40px;
+    font-size: 14.5vw;
+    padding-right: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mf-footer-wordmark,
+  .mf-footer-wordmark.mf-wordmark-animate,
+  .mf-footer-wordmark.mf-wordmark-animate::after {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .mf-footer-wordmark::after {
+    transform: scaleX(1);
+  }
+}
